@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Outra Página</title>
+</head>
+<body>
+  <h2>Itens selecionados:</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 200px;">CPF</th>
+		<th style="width: 800px;">Nome</th>
+		<th style="width: 200px;">Tipo Inquilino</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Usando Thymeleaf para iterar sobre os itens selecionados e exibi-los na tabela -->
+      <tr th:each="inqui : ${param.itensSelecionados}">
+       <td th:text="${(#strings.toUpperCase(inqui.cpf))}"></td>
+		<td th:text="${(#strings.toUpperCase(inqui.nome))}"></td>
+		<td>
+			<span th:if="${inqui.tipoInquilino} == A">
+				<span class="badge badge-warning"> Aluguel</span>
+			</span>
+			<span th:unless="${inqui.tipoInquilino} == A">
+				<span class="badge badge-success"> Quitado</span>
+			</span>
+		</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+	<title>Entrada</title>
+</head>
+<body>
+		
+		<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form" th:action="@{cadastroSalvar}" th:object="${inqui}" th:method="post">
+					
+					<span class="login100-form-title p-b-26">
+						<img src="fotos/paisagem.png" width="60" height="60">
+					</span>
+					
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="cpf" th:field="*{cpf}">
+						<span class="focus-input100" data-placeholder="Cpf"></span>
+					</div>
+
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="nome" th:field="*{nome}">
+						<span class="focus-input100" data-placeholder="Nome"></span>
+					</div>
+
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="telefone" th:field="*{telefone}">
+						<span class="focus-input100" data-placeholder="Telefone"></span>
+					</div>
+					
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="email" th:field="*{email}">
+						<span class="focus-input100" data-placeholder="Email"></span>
+					</div>
+					
+					<div class="wrap-input100">
+						<select  class="input100" name="tipoInquilino" th:field="*{tipoInquilino}">
+									<option value="A">Aluguel</option>
+									<option value="Q">Quitado</option>
+								</select>
+					</div>
+
+					<div class="container-login100-form-btn ">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" type="submit">
+								Cadastrar
+							</button>
+						</div>
+					</div>
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<a th:href="home" class="login100-form-btn">
+								Voltar
+							</a>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
