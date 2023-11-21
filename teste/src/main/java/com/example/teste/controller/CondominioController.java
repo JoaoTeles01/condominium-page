@@ -3,6 +3,7 @@ package com.example.teste.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -28,14 +29,6 @@ public class CondominioController {
 	@Autowired
 	private VeiculosInquiRepository repoVei;
 
-	private static CondominioController instance;
-	
-	public static CondominioController getInstance() {
-		if(instance == null) {
-			instance = new CondominioController();
-		}
-		return instance;
-	}
 	
 	@GetMapping("home")
 	public ModelAndView home(ModelMap model) {
@@ -43,7 +36,7 @@ public class CondominioController {
 	}
 	
 	@GetMapping("listagem")
-	public ModelAndView listagem(ModelMap model) {
+	public ModelAndView listagem(@NotNull ModelMap model) {
 		List<Inquilino> lista = repo.findAll();
 		model.addAttribute("lista", lista);
 		return new ModelAndView("programa/listaInquilinos");
@@ -73,7 +66,6 @@ public class CondominioController {
 	
 	@GetMapping("loginInqui")
 	public ModelAndView loginInqui(ModelMap model) {
-		CondominioController.getInstance();
 		model.addAttribute("loginInqui", new Inquilino());
 		return new ModelAndView("programa/loginInqui");
 	}
